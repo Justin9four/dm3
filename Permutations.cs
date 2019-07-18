@@ -1,8 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Net;
 using System.IO;
 
@@ -45,7 +43,7 @@ namespace Week_9
 
         public double SigmoidFunction(UInt64 c, UInt64 n, double T)
         {
-            Int64 deltaE = (Int64) n- (Int64)c;
+            Int64 deltaE = (Int64)n - (Int64)c;
             // Console.WriteLine($"c: {c}");
             // Console.WriteLine($"n: {n}");
             // Console.WriteLine($"deltaE: {deltaE}");
@@ -60,18 +58,19 @@ namespace Week_9
         {
             Random random = new Random();
             char[] permutation = "abcdefghijklmnopqrst".ToArray();
-            
+
             string va = TryPermutation(new string(permutation));
-            if (va == "0") {
-							Console.WriteLine("0");
-							return;
-						}
+            if (va == "0")
+            {
+                Console.WriteLine("0");
+                return;
+            }
             UInt64 lastVal = UInt64.Parse(va);
 
             UInt64 T = 10;
             while (T > 1)
             {
-                for (long i = 0; i < 1000000000000; i++)
+                for (long i = 0; i < 2000; i++)
                 {
                     char[] tryPermutation = new string(permutation).ToArray();
 
@@ -99,21 +98,27 @@ namespace Week_9
                 // Console.WriteLine($"{T} Combination: {new String(permutation)}");
                 // Console.WriteLine($"{T} Value      : {lastVal}");
                 // Console.WriteLine($"{T} Sentence   : {GetSentence(permutation)}");
-                T -= 1;
+                T -= Convert.ToUInt64(Convert.ToDouble(T) * 0.01);
+
+                if (T > 1000000)
+                {
+                    T = 1000000;
+                    return;
+                }
             }
         }
 
         public string Get(string uri)
         {
-          HttpWebRequest request = (HttpWebRequest)WebRequest.Create(uri);
-    request.AutomaticDecompression = DecompressionMethods.GZip |       DecompressionMethods.Deflate;
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(uri);
+            request.AutomaticDecompression = DecompressionMethods.GZip | DecompressionMethods.Deflate;
 
-          using(HttpWebResponse response = (HttpWebResponse)request.GetResponse())
-          using(Stream stream = response.GetResponseStream())
-    using(StreamReader reader = new StreamReader(stream))
-          {
-            return reader.ReadToEnd();
-          }
+            using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+            using (Stream stream = response.GetResponseStream())
+            using (StreamReader reader = new StreamReader(stream))
+            {
+                return reader.ReadToEnd();
+            }
         }
 
         // private ulong TryFastPermutation(string permutation)
@@ -139,7 +144,7 @@ namespace Week_9
         //   //  char[] xs = permuation.Substring(1).ToArray();
         //   //  ulong total = Rank(new string(xs));
 
-             
+
         //     return 0;
         // }      
 
@@ -174,7 +179,8 @@ namespace Week_9
                 Swap(permuation, random2, 18);
                 Swap(permuation, random1, 17);
                 Swap(permuation, random2, 16);
-            } else if (swapVersion >= 81 && swapVersion < 89)
+            }
+            else if (swapVersion >= 81 && swapVersion < 89)
             {
                 int random1 = random.Next(10, 20);
                 int random2 = random.Next(10, 20);
@@ -184,7 +190,8 @@ namespace Week_9
                 Swap(permuation, random2, 8);
                 Swap(permuation, random3, 9);
                 Swap(permuation, random4, 10);
-            } else if (swapVersion >= 89 && swapVersion <= 100)
+            }
+            else if (swapVersion >= 89 && swapVersion <= 100)
             {
                 int random1 = random.Next(15, 20);
                 int random2 = random.Next(15, 20);
@@ -194,7 +201,8 @@ namespace Week_9
                 Swap(permuation, random2, 13);
                 Swap(permuation, random1, 14);
                 Swap(permuation, random2, 15);
-            } else if (swapVersion > 100 && swapVersion < 111)
+            }
+            else if (swapVersion > 100 && swapVersion < 111)
             {
                 int random1 = random.Next(0, 20);
                 int random2 = random.Next(0, 20);
@@ -205,7 +213,8 @@ namespace Week_9
                         Swap(permuation, random1++, i);
                     }
                 }
-            } else if (swapVersion > 110 && swapVersion < 120)
+            }
+            else if (swapVersion > 110 && swapVersion < 120)
             {
                 int random1 = random.Next(11, 20);
                 int random2 = random.Next(11, 20);
@@ -232,9 +241,9 @@ namespace Week_9
             // string content = Get($"http://firstthreeodds.org/pdq?perm={combination}");
 
             GFG gfg = new GFG();
-	        	return(Math.Abs(gfg.findRank(combination) - 200831837313463612).ToString()); 
-        
-           // return content;
+            return (Math.Abs(gfg.findRank(combination) - 200831837313463612).ToString());
+
+            // return content;
 
         }
     }
