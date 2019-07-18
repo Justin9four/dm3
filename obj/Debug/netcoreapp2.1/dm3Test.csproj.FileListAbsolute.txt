@@ -1,0 +1,11 @@
+/Users/justinchandler/Desktop/dm3Test/obj/Debug/netcoreapp2.1/dm3Test.csprojAssemblyReference.cache
+/Users/justinchandler/Desktop/dm3Test/obj/Debug/netcoreapp2.1/dm3Test.csproj.CoreCompileInputs.cache
+/Users/justinchandler/Desktop/dm3Test/obj/Debug/netcoreapp2.1/dm3Test.AssemblyInfoInputs.cache
+/Users/justinchandler/Desktop/dm3Test/obj/Debug/netcoreapp2.1/dm3Test.AssemblyInfo.cs
+/Users/justinchandler/Desktop/dm3Test/bin/Debug/netcoreapp2.1/dm3Test.deps.json
+/Users/justinchandler/Desktop/dm3Test/bin/Debug/netcoreapp2.1/dm3Test.runtimeconfig.json
+/Users/justinchandler/Desktop/dm3Test/bin/Debug/netcoreapp2.1/dm3Test.runtimeconfig.dev.json
+/Users/justinchandler/Desktop/dm3Test/bin/Debug/netcoreapp2.1/dm3Test.dll
+/Users/justinchandler/Desktop/dm3Test/bin/Debug/netcoreapp2.1/dm3Test.pdb
+/Users/justinchandler/Desktop/dm3Test/obj/Debug/netcoreapp2.1/dm3Test.dll
+/Users/justinchandler/Desktop/dm3Test/obj/Debug/netcoreapp2.1/dm3Test.pdb
